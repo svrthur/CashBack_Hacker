@@ -1,20 +1,28 @@
 plugins {
-    id 'groovy'
+    id 'java' // Подключаем поддержку Java
 }
 
 group = 'ru.netology'
 version = '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+    mavenCentral() // Используем центральный репозиторий Maven
 }
 
 dependencies {
-    implementation 'org.apache.groovy:groovy:4.0.14'
+    // Добавляем зависимость для TestNG
+    testImplementation 'org.testng:testng:7.1.0'
+
+    // Добавляем зависимость для JUnit4
+    testImplementation 'junit:junit:4.13.2'
+
+    // Можно оставить зависимость для JUnit5, если она нужна
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform() // Используем JUnit5 для тестов
+    // Если хотите использовать TestNG, можете раскомментировать следующую строку:
+    // useTestNG()
 }
