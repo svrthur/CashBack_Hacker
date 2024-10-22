@@ -28,13 +28,13 @@ public class CashbackHackServiceJUnit4Test {
     }
 
     @Test
-    public void shouldReturn500IfAmountIs1500() {
+    public void shouldFailTestIfAmountIs900() {  // Специальный падающий тест
         CashbackHackService service = new CashbackHackService();
-        int amount = 1500;
-        int expected = 500;
+        int amount = 900;
+        int expected = 200;  // Неправильное ожидаемое значение
 
         int actual = service.remain(amount);
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual);  // Этот тест намеренно упадет
     }
 }
